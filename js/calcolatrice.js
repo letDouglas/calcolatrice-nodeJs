@@ -1,19 +1,19 @@
-const stampaResultato = (message) => {
-  console.log(message);
-};
-
-const somma = (a, b) => {
+export const somma = (a, b) => {
   return a + b;
 };
 
-const resta = (a, b) => {
+export const resta = (a, b) => {
   return a - b;
 };
 
-const moltiplicazione = (a, b) => {
+export const moltiplicazione = (a, b) => {
   return a * b;
 };
 
-const divisione = (a, b) => {
+export const divisione = (a, b) => {
   return a / b;
+};
+
+export const stampaRisultato = (message) => {
+  console.log(message);
 };
