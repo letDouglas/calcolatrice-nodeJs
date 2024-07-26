@@ -1,9 +1,6 @@
-//FIXME: va in errore con undefined e date o altri tipi di oggetti.
 const somma = (a, b) => {
-  // Deve dare errore in caso di:
-  // stringhe, date, undefined, oggetti, null
-  if (typeof a === "string" || typeof b === "string") {
-    console.error("Errore: uno dei valori è una stringa.");
+  if (typeof a !== "number" || typeof b !== "number" || isNaN(a) || isNaN(b)) {
+    console.log("Errore: entrambi i valori devono essere numeri.");
     return 0;
   }
   return a + b;
@@ -13,11 +10,27 @@ const moltiplica = (...args) => {
   if (args.length < 2) {
     throw new Error("La funzione moltiplica richiede almeno due argomenti");
   }
-  //FIXME: estrarre la funzione di accumulazione per averla non inline anonima
-  return args.reduce((acc, curr) => acc * curr, 1);
+  return operatoreDiAccumolo(args);
 };
 
-console.log(somma(5, 11));
+const operatoreDiAccumolo = (numeri) => {
+  return numeri.reduce((acc, curr) => {
+    return acc * curr;
+  }, 1);
+};
 
-//FIXME: gestire il throw dell'errore
-console.log(moltiplica(2));
+console.log("Test di somma:");
+console.log(somma(5, 11));
+console.log(somma(0, 0));
+console.log(somma(10, "abc"));
+
+console.log("\nTest di moltiplica:");
+console.log(moltiplica(2, 3));
+console.log(moltiplica(2, 3, 4));
+
+console.log("Testando errore di moltiplicazione");
+try {
+  console.log(moltiplica(2));
+} catch (error) {
+  console.error(error.message);
+}
