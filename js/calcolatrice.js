@@ -17,4 +17,3 @@ const moltiplicazione = (a, b) => {
 const divisione = (a, b) => {
   return a / b;
 };
-
