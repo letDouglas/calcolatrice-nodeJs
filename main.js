@@ -1,62 +1,19 @@
-import promptSync from "prompt-sync";
-import calcolatrice from "./calcolatrice.js";
-
-const prompt = promptSync();
-const numbers = [];
-
-const controller = () => {
-  welcome();
-
-  askForNumbers();
-
-  while (true) {
-    printaOperazioni();
-
-    const risposta = prompt(
-      "Per favore, emetti il numero della operazione da eseguire per favore: "
-    );
-    const operazione = parseInt(risposta);
-    if (operazione === 0) {
-      console.log("Uscita dal programma.");
-      break;
-    }
-
-    try {
-      const risultato = calcolatrice(operazione, numbers[0], numbers[1]);
-      stampaRisultato(risultato);
-      break;
-    } catch (error) {
-      console.log(error.message);
-    }
+const somma = (a, b) => {
+  if (typeof a === "string" || typeof b === "string") {
+    console.error("Errore: uno dei valori è una stringa.");
+    return 0;
   }
+  return a + b;
 };
 
-const stampaRisultato = (risultato) => {
-  console.log(`Ciao, il risultato è il seguente: ${risultato}`);
+const moltiplica = (a, b) => {
+  if (typeof a !== "number" || typeof b !== "number") {
+    console.error("Errore: entrambi i valori devono essere numeri.");
+    return 0;
+  }
+  return a * b;
 };
 
-const askForNumbers = () => {
-  do {
-    const risposta = prompt("Inserire un numero: ");
-    const numero = Number(risposta);
-    if (!isNaN(numero)) {
-      numbers.push(numero);
-    } else {
-      console.log("Inserire un valore di tipo numero");
-    }
-  } while (numbers.length < 2);
-};
+console.log(somma(5, 3)); 
 
-const printaOperazioni = () => {
-  console.log("1 - Somma ");
-  console.log("2 - Sottrazione ");
-  console.log("3 - Moltiplicazione");
-  console.log("4 - Divisione");
-  console.log("0 - Esci");
-};
-
-const welcome = () => {
-  console.log("Ciao, mi chiamo Felix e sono una semplice calcolatrice");
-};
-
-controller();
+console.log(moltiplica(2, 3)); 
