@@ -6,14 +6,13 @@ const somma = (a, b) => {
   return a + b;
 };
 
-const moltiplica = (a, b) => {
-  if (typeof a !== "number" || typeof b !== "number") {
-    console.error("Errore: entrambi i valori devono essere numeri.");
-    return 0;
+const moltiplica = (...args) => {
+  if (args.length < 2) {
+    throw new Error("La funzione moltiplica richiede almeno due argomenti");
   }
-  return a * b;
+  return args.reduce((acc, curr) => acc * curr, 1);
 };
 
-console.log(somma(5, 3)); 
+console.log(somma(5, 3));
 
-console.log(moltiplica(2, 3)); 
+console.log(moltiplica(2, 3));
