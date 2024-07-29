@@ -1,5 +1,8 @@
 // main.js
 import { add, subtract, multiply, divide, power, printResult } from './js/calcolatrice.js';
+import {numberToString, numberToFloat } from './js/formatta_numeri.js';
+import {compare } from './js/confronta_numeri.js';
+
 
 const testOperations = () => {
   try {
@@ -70,3 +73,20 @@ const testOperations = () => {
 };
 
 testOperations();
+
+
+
+const testComparison = () => {
+  console.log(`Comparing 10 and 5: ${compare(10, 5)}`);
+  console.log(`Comparing 7 and 7: ${compare(7, 7)}`);
+  console.log(`Comparing 3 and 8: ${compare(3, 8)}`);
+};
+
+const testNumberConversion = () => {
+  console.log(`Number 123 as string: ${numberToString(123)}`);
+  console.log(`Number 123.456 to two decimal places: ${numberToFloat(123.456)}`);
+  console.log(`Number 789 to two decimal places: ${numberToFloat(789)}`);
+};
+
+testComparison();
+testNumberConversion();
