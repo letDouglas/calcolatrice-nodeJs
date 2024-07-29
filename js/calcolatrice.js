@@ -38,6 +38,7 @@ export const subtract = (a, b) => {
  * @throws {Error} Throws an error if a or b are not valid numbers.
  */
 export const multiply = (a, b) => {
+  //FIXME: nelle specifiche iniziali doveva avere più di due argomenti.
   // Validate inputs
   areValidNumbers(a, b);
   return a * b;

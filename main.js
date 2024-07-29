@@ -5,13 +5,17 @@ import {compare } from './js/confronta_numeri.js';
 
 
 const testOperations = () => {
+  //FIXME: Riorganizzare tutte le chiamate per operazione. In questo modo è molto difficile capire se sono stati fatti tutti i test. Prima le somme, poi le sottrazioni, poi la moltiplicazione, poi divisione e potenza
   try {
+    // Fare un unico output per ogni operazione sintetizzando tutti i test fatti.
+
     printResult(`Addition of 5 and 3: ${add(5, 3)}`);
-    printResult(`Subtraction of 10 from 15: ${subtract(15, 10)}`);
+    printResult(`Subtraction of 10 from 15: ${subtract(15, 10)}`); 
     printResult(`Multiplication of 4 and 7: ${multiply(4, 7)}`);
-    printResult(`Division of 20 by 4: ${divide(20, 4)}`);
+    printResult(`Division of 20 by 4: ${divide(20, 4)}`); 
     printResult(`Power of 2 to the exponent 3: ${power(2, 3)}`);
 
+    // FIXME: si possono ottimizzare tutte queste try catch in un unico blocco? Eventualmente rivedere le funzioni
     try {
       printResult(`Division of 10 by 0: ${divide(10, 0)}`);
     } catch (error) {
